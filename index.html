@@ -1,262 +1,189 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antonio Caruso | Junior Full Stack Developer Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome per icone moderne -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Animazione personalizzata per i gradienti di sfondo */
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.2); opacity: 0.6; }
-        }
-        .animate-glow-1 { animation: pulseGlow 8s ease-in-out infinite; }
-        .animate-glow-2 { animation: pulseGlow 12s ease-in-out infinite 2s; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antonio Caruso | Junior Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1426;--surface:#251c36;--ink:#fff1e3;--muted:#bba9cf;--edge:#fff1e3;--accent:#ff7a1a;--accent-ink:#1a1426;--soft:#33264a;--ok:#4be38a;--grid:rgba(255,241,227,.045);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff3e6;--surface:#fff;--ink:#2a1a3d;--muted:#6b5a7d;--edge:#2a1a3d;--accent:#e85d00;--accent-ink:#fff;--soft:#ffe0c2;--ok:#12a150;--grid:rgba(42,26,61,.06)}}
+:root[data-theme="light"]{--bg:#fff3e6;--surface:#fff;--ink:#2a1a3d;--muted:#6b5a7d;--edge:#2a1a3d;--accent:#e85d00;--accent-ink:#fff;--soft:#ffe0c2;--ok:#12a150;--grid:rgba(42,26,61,.06)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:'Pixelify Sans',system-ui,monospace;font-size:19px;line-height:1.55}
+h1,h2{font-family:'Press Start 2P','Pixelify Sans',monospace;font-weight:400;margin:0;line-height:1.4}
+h3{font-family:'Pixelify Sans',monospace;font-weight:700;margin:0;line-height:1.2}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--accent);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:4px solid var(--edge)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Press Start 2P',monospace;font-size:.8rem;text-decoration:none;color:var(--accent)}
+nav{display:flex;gap:22px;font-weight:600}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--accent)}
+@media(max-width:560px){nav a:nth-child(n+3){display:none}}
+.hero{padding:72px 0 80px}
+.hero .grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:center}
+@media(max-width:760px){.hero .grid{grid-template-columns:1fr}.hero{padding-top:44px}}
+.status{display:inline-flex;align-items:center;gap:10px;border:3px solid var(--edge);background:var(--surface);padding:6px 14px;margin-bottom:28px;font-size:.95rem}
+.status i{width:12px;height:12px;background:var(--ok)}
+h1{font-size:clamp(1.5rem,5.4vw,2.7rem);letter-spacing:-.02em;text-shadow:4px 4px 0 var(--accent)}
+.role{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:600;color:var(--accent);margin:26px 0 18px}
+.role::after{content:"";display:inline-block;width:.6em;height:1em;background:var(--accent);margin-left:8px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{max-width:54ch;color:var(--muted);font-size:1.12rem;margin:0 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:16px}
+.btn{display:inline-block;padding:12px 20px;font-weight:700;text-decoration:none;border:3px solid var(--edge);background:var(--surface);box-shadow:5px 5px 0 var(--edge);transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--edge)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.sprite{border:4px solid var(--edge);background:var(--soft);box-shadow:8px 8px 0 var(--accent);padding:28px;justify-self:center;width:100%;max-width:260px}
+.sprite svg{display:block;width:100%;height:auto;shape-rendering:crispEdges}
+@media(max-width:760px){.sprite{max-width:160px;padding:16px;justify-self:start;order:-1}}
+@media(prefers-reduced-motion:reduce){.role::after{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+section{padding:72px 0;border-top:4px dashed var(--edge)}
+h2{font-size:clamp(.95rem,2.6vw,1.35rem);margin-bottom:40px;color:var(--ink)}
+h2::before{content:">";color:var(--accent);margin-right:.7em}
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:44px}
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:28px}}
+.about p{margin:0 0 16px;max-width:60ch}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:16px;align-content:start}
+.facts li{background:var(--surface);border:3px solid var(--edge);box-shadow:5px 5px 0 var(--edge);padding:12px 16px}
+.facts b{display:block;font-size:.9rem;color:var(--accent)}
+.row{display:grid;grid-template-columns:250px 1fr;gap:12px 40px;padding:28px 0;border-bottom:3px dashed var(--muted)}
+.row:first-child{padding-top:0}.row:last-child{border-bottom:0}
+@media(max-width:700px){.row{grid-template-columns:1fr}}
+.row h3{font-size:1.4rem}
+.row p{margin:6px 0 0;color:var(--muted);font-size:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
+.tags span{border:3px solid var(--edge);background:var(--surface);padding:3px 12px;font-weight:500}
+.tags span:hover{background:var(--accent);color:var(--accent-ink)}
+.tl{list-style:none;margin:0;padding:0 0 0 34px;border-left:4px solid var(--edge);display:grid;gap:44px}
+.tl>li{position:relative}
+.tl>li::before{content:"";position:absolute;left:-46px;top:6px;width:20px;height:20px;background:var(--bg);border:4px solid var(--edge)}
+.tl>li.now::before{background:var(--accent);border-color:var(--accent)}
+.when{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;padding:0 10px;font-size:.95rem}
+.tl h3{font-size:1.5rem;margin:12px 0 4px}
+.org{color:var(--muted);margin-bottom:10px}
+.tl ul{margin:0;padding-left:22px;color:var(--muted);max-width:64ch}
+.tl ul li{margin-bottom:6px}
+.tl p{margin:0;color:var(--muted);max-width:64ch}
+.contact{background:var(--surface);border:4px solid var(--edge);box-shadow:10px 10px 0 var(--accent);padding:clamp(24px,5vw,52px)}
+.contact h2{margin-bottom:24px}
+.contact p{max-width:50ch;color:var(--muted);margin:0 0 28px}
+footer{padding:32px 0;border-top:4px solid var(--edge);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950 relative overflow-x-hidden">
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top">AC_</a>
+  <nav aria-label="Principale"><a href="#about">Chi sono</a><a href="#skills">Competenze</a><a href="#experience">Percorso</a><a href="#contact">Contatti</a></nav>
+</div></header>
 
-    <!-- SFONDI ANIMATI GLOW (EFFETTO LUCE NEON) -->
-    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none z-0 animate-glow-1"></div>
-    <div class="absolute top-[40%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0 animate-glow-2"></div>
-    <div class="absolute bottom-[10%] left-[5%] w-[40vw] h-[40vw] rounded-full bg-teal-500/5 blur-[100px] pointer-events-none z-0"></div>
+<main id="top">
+<div class="hero"><div class="wrap grid">
+  <div>
+    <div class="status"><i></i>Disponibile per nuove sfide Full Stack</div>
+    <h1>Antonio<br>Caruso</h1>
+    <div class="role">Junior Full Stack Developer</div>
+    <p class="lead">Laureando in Informatica alla Federico II e sviluppatore software. Unisco basi accademiche solide ed esperienza sul campo per creare soluzioni web e desktop affidabili, curate nei dettagli.</p>
+    <div class="btns"><a class="btn primary" href="#experience">Vedi il mio percorso</a><a class="btn" href="#contact">Contattami</a></div>
+  </div>
+  <div class="sprite" aria-hidden="true"><svg id="px" viewBox="0 0 16 13"></svg></div>
+</div></div>
 
-    <!-- NAVBAR FLUTTUANTE GLASSMORPHISM -->
-    <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-5xl">
-        <nav class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl px-6 h-16 flex items-center justify-between shadow-2xl shadow-emerald-950/20">
-            <a href="#" class="text-xl font-black tracking-wider bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent transition-transform hover:scale-105 duration-300">
-                &lt;ANTONIO /&gt;
-            </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-emerald-400 transition-colors duration-300">Chi Sono</a>
-                <a href="#skills" class="hover:text-emerald-400 transition-colors duration-300">Tech Stack</a>
-                <a href="#experience" class="hover:text-emerald-400 transition-colors duration-300">Percorso</a>
-                <a href="#contact" class="hover:text-emerald-400 transition-colors duration-300">Contatti</a>
-            </div>
-            <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-950 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300">
-                Contattami
-            </a>
-        </nav>
-    </header>
+<section id="about"><div class="wrap">
+  <h2>Chi sono</h2>
+  <div class="about">
+    <div>
+      <p>La passione per l'informatica è nata all'ITIS "Enrico Medi", dove ho mosso i primi passi nella programmazione. Oggi sto completando la laurea in Scienze e Tecnologie Informatiche all'Università degli Studi di Napoli Federico II e, nel frattempo, lavoro come sviluppatore.</p>
+      <p>Sono perfezionista e attento ai dettagli, imparo in fretta e lavoro volentieri in team. Mi piace costruire architetture software stabili e migliorare l'esperienza d'uso delle interfacce.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Lingue</b>Inglese, certificazione Trinity College B2.1</li>
+      <li><b>Certificazione</b>Python, Università Parthenope</li>
+      <li><b>Base</b>San Giorgio a Cremano (Napoli)</li>
+    </ul>
+  </div>
+</div></section>
 
-    <!-- HERO SECTION HEROIC -->
-    <section class="min-h-screen flex items-center justify-center pt-24 relative z-10">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 backdrop-blur-md">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
-                Disponibile a nuove sfide Full Stack
-            </span>
-            <h1 class="text-4xl sm:text-7xl font-black tracking-tight mb-4 text-white">
-                Antonio Caruso
-            </h1>
-            <p class="text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent mb-6 tracking-wide">
-                Junior Full Stack Developer
-            </p>
-            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-400 mb-10 leading-relaxed">
-                Laureando in Informatica presso l'Università Federico II e Software Developer[cite: 1]. Unisco solide basi accademiche con l'esperienza sul campo per creare soluzioni web e desktop performanti, curate nel minimo dettaglio[cite: 1].
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#experience" class="px-8 py-4 rounded-xl bg-emerald-400 text-slate-950 font-bold hover:bg-emerald-300 hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 transform hover:-translate-y-1">
-                    Esplora la mia esperienza
-                </a>
-                <a href="#contact" class="px-8 py-4 rounded-xl bg-slate-900 text-slate-200 font-semibold border border-slate-800 hover:bg-slate-800 hover:border-slate-700 transition-all duration-300 transform hover:-translate-y-1">
-                    Parliamo del tuo progetto
-                </a>
-            </div>
-        </div>
-    </section>
+<section id="skills"><div class="wrap">
+  <h2>Competenze</h2>
+  <div>
+    <div class="row">
+      <div><h3>Applicazioni web</h3><p>Sviluppo e manutenzione ordinaria ed evolutiva.</p></div>
+      <div class="tags"><span>Node.js</span><span>Django</span><span>Laravel</span><span>PHP</span><span>JavaScript</span><span>HTML5 / CSS3</span><span>REST API</span></div>
+    </div>
+    <div class="row">
+      <div><h3>Applicazioni desktop</h3><p>Interfacce grafiche e programmi nativi.</p></div>
+      <div class="tags"><span>Python</span><span>PyQt5</span><span>Tkinter</span><span>Java</span><span>C#</span></div>
+    </div>
+    <div class="row">
+      <div><h3>Fondamenti e dati</h3><p>Programmazione a basso e medio livello, basi di dati.</p></div>
+      <div class="tags"><span>C / C++</span><span>SQL</span><span>Assembly 8086</span><span>Office</span></div>
+    </div>
+  </div>
+</div></section>
 
-    <!-- SEZIONE CHI SONO CON IMMAGINE CURRICULUM -->
-    <section id="about" class="py-28 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            
-            <!-- Foto profilo reale con effetti di luce -->
-            <div class="md:col-span-4 flex justify-center">
-                <div class="relative group">
-                    <!-- Glow di sfondo all'immagine -->
-                    <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full blur opacity-40 group-hover:opacity-70 transition duration-500"></div>
-                    <!-- Immagine ritagliata in un cerchio perfetto come da CV -->
-                    <div class="relative w-56 h-56 rounded-full overflow-hidden border-4 border-slate-900 shadow-2xl bg-slate-800">
-                        <img src="https://images.weserv.nl/?url=https://raw.githubusercontent.com/ai-images-bucket/cdn/main/antonio_caruso.jpg&w=400&h=400&fit=cover" alt="Antonio Caruso" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                    </div>
-                </div>
-            </div>
+<section id="experience"><div class="wrap">
+  <h2>Esperienza e formazione</h2>
+  <ol class="tl">
+    <li class="now">
+      <span class="when">Maggio 2025 - oggi</span>
+      <h3>Sviluppatore software</h3>
+      <div class="org">Green Tech Solution, Napoli</div>
+      <ul>
+        <li>Sviluppo, manutenzione evolutiva e ottimizzazione di web application (Node.js, Django, Laravel, PHP).</li>
+        <li>Progettazione e sviluppo di applicazioni desktop in Python con PyQt, PyQt5 e Tkinter.</li>
+        <li>Integrazione di API REST per lo scambio di dati.</li>
+      </ul>
+    </li>
+    <li>
+      <span class="when">Da settembre 2022 - in corso</span>
+      <h3>Laurea in Scienze e Tecnologie Informatiche</h3>
+      <div class="org">Università degli Studi di Napoli Federico II</div>
+    </li>
+    <li>
+      <span class="when">Fino a giugno 2022</span>
+      <h3>Diploma in Informatica</h3>
+      <div class="org">ITIS "Enrico Medi" - voto finale 95/100</div>
+      <p>Primi studi su C, C++, C#, Java, database SQL e Assembly 8086.</p>
+    </li>
+  </ol>
+</div></section>
 
-            <!-- Testo di Presentazione -->
-            <div class="md:col-span-8">
-                <h2 class="text-3xl font-black mb-6 text-white flex items-center gap-3">
-                    <span class="text-emerald-400 text-2xl font-mono">01.</span> Chi Sono
-                </h2>
-                <div class="space-y-4 text-slate-300 leading-relaxed text-base">
-                    <p>
-                        La mia passione per l'informatica è nata tra i banchi dell'ITIS "Enrico Medi", dove ho mosso i primi passi nella programmazione[cite: 1]. Oggi sto completando il mio percorso accademico in <strong class="text-emerald-400 font-medium">Scienze e tecnologie informatiche presso l'Università degli Studi di Napoli Federico II</strong>, affiancando lo studio al lavoro attivo come sviluppatore[cite: 1].
-                    </p>
-                    <p>
-                        Mi considero una persona <strong class="text-white font-medium">perfezionista e attenta ai dettagli</strong>, con un apprendimento estremamente rapido e una forte propensione al lavoro in team[cite: 1]. Amo sporcarmi le mani sia strutturando architetture software stabili sia ottimizzando l'esperienza utente delle interfacce grafiche[cite: 1].
-                    </p>
-                    <!-- badge extra certificazioni -->
-                    <div class="pt-2 flex flex-wrap gap-2">
-                        <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-400 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-cyan-400"></i> Trinity College English B2.1[cite: 1]
-                        </span>
-                        <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-400 flex items-center gap-2">
-                            <i class="fa-brands fa-python text-yellow-400"></i> Certificazione Python (Univ. Parthenope)[cite: 1]
-                        </span>
-                    </div>
-                </div>
-            </div>
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Lavoriamo insieme</h2>
+    <p>Sono aperto a collaborazioni, posizioni Full Stack e progetti nuovi. Scrivimi o chiamami.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:antoniocaruso272003@gmail.com">antoniocaruso272003@gmail.com</a>
+      <a class="btn" href="tel:+393200889332">+39 320 088 9332</a>
+    </div>
+  </div>
+</div></section>
+</main>
 
-        </div>
-    </section>
+<footer><div class="wrap">
+  <span>&copy; 2026 Antonio Caruso</span>
+  <span>Autorizzo il trattamento dei dati personali ai sensi del GDPR.</span>
+</div></footer>
 
-    <!-- TECH STACK CARD GLOW -->
-    <section id="skills" class="py-28 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center md:text-left mb-16">
-            <h2 class="text-3xl font-black text-white flex items-center justify-center md:justify-start gap-3">
-                <span class="text-emerald-400 text-2xl font-mono">02.</span> Tech Stack & Competenze
-            </h2>
-            <p class="text-slate-400 mt-2 text-sm max-w-lg">Tutti i linguaggi e i framework che utilizzo attivamente tra università, lavoro e progetti personali[cite: 1].</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Web / Frontend & Backend -->
-            <div class="p-8 bg-slate-900/40 border border-slate-800/80 rounded-2xl hover:border-emerald-500/30 hover:bg-slate-900/60 transition-all duration-300 group shadow-xl">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-white">Sviluppo Web Apps</h3>
-                <p class="text-slate-400 text-xs mb-4">Gestione e manutenzione ordinaria ed evolutiva di applicazioni web[cite: 1]:</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Node.js</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Django</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Laravel</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">PHP</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">JavaScript</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">HTML5 / CSS3</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">REST API[cite: 1]</span>
-                </div>
-            </div>
-
-            <!-- Standalone & Desktop Apps -->
-            <div class="p-8 bg-slate-900/40 border border-slate-800/80 rounded-2xl hover:border-blue-500/30 hover:bg-slate-900/60 transition-all duration-300 group shadow-xl">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-desktop"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-white">Applicazioni Standalone</h3>
-                <p class="text-slate-400 text-xs mb-4">Creazione di interfacce grafiche ed applicativi desktop nativi[cite: 1]:</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Python[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">PyQt / PyQt5[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Tkinter[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Java[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">C#[cite: 1]</span>
-                </div>
-            </div>
-
-            <!-- Software Engineering & Core -->
-            <div class="p-8 bg-slate-900/40 border border-slate-800/80 rounded-2xl hover:border-cyan-500/30 hover:bg-slate-900/60 transition-all duration-300 group shadow-xl">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-code-branch"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-white">Basi e Strutture Dati</h3>
-                <p class="text-slate-400 text-xs mb-4">Competenze di programmazione a basso/medio livello e basi di dati[cite: 1]:</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">C / C++[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">SQL (Database)[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Assembly (8086)[cite: 1]</span>
-                    <span class="text-xs bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md font-mono">Office Suite[cite: 1]</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TIMELINE ESPERIENZE E FORMAZIONE INTERATTIVA -->
-    <section id="experience" class="py-28 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 class="text-3xl font-black text-white flex items-center gap-3 mb-16">
-            <span class="text-emerald-400 text-2xl font-mono">03.</span> Esperienza e Formazione
-        </h2>
-
-        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-12">
-            
-            <!-- Lavoro Corrente -->
-            <div class="relative pl-8 group">
-                <!-- Indicatore sulla timeline -->
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-emerald-950/50 group-hover:bg-emerald-300 transition-colors"></div>
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2.5 py-1 rounded-md">Maggio 2025 - Attuale[cite: 1]</span>
-                <h3 class="text-xl font-bold text-white mt-3">Sviluppatore Software</h3>
-                <h4 class="text-base text-slate-400 font-medium mb-3">Green Tech Solution (Napoli, Italia)[cite: 1]</h4>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-2xl mb-2">
-                    Attività incentrata sullo sviluppo di soluzioni integrate[cite: 1]:
-                </p>
-                <ul class="list-disc list-inside text-slate-400 text-sm space-y-1 pl-1">
-                    <li>Sviluppo, manutenzione evolutiva e ottimizzazione di Web Applications (Node.js, Django, Laravel, PHP)[cite: 1].</li>
-                    <li>Progettazione e sviluppo di applicazioni standalone native con Python sfruttando framework grafici quali PyQt, PyQt5 e Tkinter[cite: 1].</li>
-                    <li>Integrazione avanzata di API REST per lo scambio asincrono di dati[cite: 1].</li>
-                </ul>
-            </div>
-
-            <!-- Università -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-900 group-hover:bg-emerald-400 transition-colors"></div>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-slate-800 px-2.5 py-1 rounded-md">Settembre 2022 - In Corso[cite: 1]</span>
-                <h3 class="text-xl font-bold text-white mt-3">Laurea in Scienze e Tecnologie Informatiche</h3>
-                <h4 class="text-base text-slate-400 font-medium mb-2">Università degli Studi di Napoli Federico II[cite: 1]</h4>
-                <p class="text-slate-400 text-sm max-w-2xl">
-                    Approfondimento accademico focalizzato su algoritmi complessi, ingegneria del software, strutture dati avanzate, architetture dei sistemi e paradigmi moderni di programmazione.
-                </p>
-            </div>
-
-            <!-- Diploma Superiori -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-900 group-hover:bg-emerald-400 transition-colors"></div>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-slate-800 px-2.5 py-1 rounded-md">Fino a Giugno 2022[cite: 1]</span>
-                <h3 class="text-xl font-bold text-white mt-3">Diploma in Informatica</h3>
-                <h4 class="text-base text-slate-400 font-medium mb-2">Istituto Tecnico Industriale Statale "Enrico Medi"[cite: 1]</h4>
-                <p class="text-slate-400 text-sm max-w-2xl">
-                    Votazione finale: <strong class="text-white">95/100</strong>[cite: 1]. Prime fondamentali competenze acquisite sui linguaggi C, C++, C#, Java, sviluppo database SQL e logica hardware con Assembly 8086[cite: 1].
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTATTI STILE SEZIONE PREMIUM -->
-    <section id="contact" class="py-28 max-w-4xl mx-auto px-4 text-center relative z-10">
-        <div class="p-12 bg-slate-900/30 border border-slate-800/80 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
-            
-            <h2 class="text-4xl font-black mb-4 text-white">Mettiamoci in contatto</h2>
-            <p class="text-slate-400 max-w-lg mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-                Abito a San Giorgio a Cremano (Napoli)[cite: 1]. Sono aperto a collaborazioni, posizioni Full Stack o progetti innovativi. Scrivimi un messaggio diretto!
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="mailto:antoniocaruso272003@gmail.com" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold tracking-wide text-slate-950 bg-emerald-400 rounded-xl hover:bg-emerald-300 transition-all duration-300 shadow-xl shadow-emerald-500/10">
-                    <i class="fa-regular fa-envelope text-base mr-2"></i> antoniocaruso272003@gmail.com[cite: 1]
-                </a>
-                <a href="tel:+393200889332" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold tracking-wide text-slate-200 bg-slate-800 border border-slate-700 rounded-xl hover:bg-slate-700 transition-colors">
-                    <i class="fa-solid fa-phone text-base mr-2 text-emerald-400"></i> (+39) 320 088 9332[cite: 1]
-                </a>
-            </div>
-            
-            <!-- Link Social Network -->
-            <div class="flex justify-center space-x-6 mt-12 text-2xl text-slate-500">
-                <a href="#" target="_blank" class="hover:text-emerald-400 transition-all duration-300 transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
-                <a href="#" target="_blank" class="hover:text-emerald-400 transition-all duration-300 transform hover:scale-110"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950/80 py-8 border-t border-slate-900 text-center text-xs text-slate-500 relative z-10">
-        <p>&copy; 2026 Antonio Caruso. Realizzato in HTML5 & Tailwind CSS.</p>
-        <p class="text-[10px] text-slate-700 mt-1">Autorizzazione al trattamento dei dati ai sensi del GDPR[cite: 1].</p>
-    </footer>
-
+<script>
+(function(){
+var scr=["oooooooooooo","ookooooooooo","oookoooooooo","ooookooooooo","oookoooooooo","ookoookkkooo"];
+var m=["################","#wwwwwwwwwwwwww#"];
+scr.forEach(function(r){m.push("#w"+r+"w#")});
+m.push("#wwwwwwwwwwwwww#","################","......####......","....########....","..############..");
+var c={"#":"var(--edge)","w":"var(--surface)","o":"var(--accent)","k":"var(--accent-ink)"};
+var h="";
+m.forEach(function(r,y){for(var x=0;x<16;x++){var t=r[x];if(t&&t!=="."){h+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="'+c[t]+'"/>'}}});
+document.getElementById("px").innerHTML=h;
+})();
+</script>
 </body>
 </html>
